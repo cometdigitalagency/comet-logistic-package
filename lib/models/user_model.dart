@@ -6,11 +6,12 @@ class UserModel extends User {
       required final String name,
       required final email,
       required final String phoneNumber,
-      required final double longtitude,
-      required final double latitude,
-      required final String language,
-      required final int locationType,
-      required final String jwtToken,
+      required final double? longtitude,
+      required final double? latitude,
+      required final String? language,
+      required final int? locationType,
+      required final String uuid,
+      required final String? jwtToken,
       required final int roleId})
       : super(
             id: id,
@@ -21,6 +22,7 @@ class UserModel extends User {
             latitude: latitude,
             language: language,
             locationType: locationType,
+            uuid: uuid,
             jwtToken: jwtToken,
             roleId: roleId);
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -33,6 +35,7 @@ class UserModel extends User {
         latitude: json['latitude'],
         language: json['language'],
         locationType: json['locationType'],
+        uuid: json['uuid'],
         jwtToken: json['jwtToken'],
         roleId: json['roleId']);
   }
@@ -46,6 +49,7 @@ class UserModel extends User {
         'latitude': latitude,
         'language': language,
         'locationType': locationType,
+        'uuid': uuid,
         'jwtToken': jwtToken,
         'roleId': roleId
       };

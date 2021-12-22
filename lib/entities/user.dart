@@ -3,11 +3,12 @@ class User {
   final String name;
   final String email;
   final String phoneNumber;
-  final double longtitude;
-  final double latitude;
-  final String language;
-  final int locationType;
-  final String jwtToken;
+  final double? longtitude;
+  final double? latitude;
+  final String? language;
+  final int? locationType;
+  final String uuid;
+  final String? jwtToken;
   final int roleId;
 
   User(
@@ -19,6 +20,7 @@ class User {
       required this.latitude,
       required this.language,
       required this.locationType,
+      required this.uuid,
       required this.jwtToken,
       required this.roleId});
 }
