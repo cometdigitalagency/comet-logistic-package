@@ -2,7 +2,7 @@ import 'package:comet_logistic_package/entities/product_sub.dart';
 
 class SubProductModel extends SubProduct {
   SubProductModel(
-      {required final String id,
+      {final String? id,
       required final String productId,
       required final name,
       final String? description,
@@ -15,7 +15,7 @@ class SubProductModel extends SubProduct {
             price: price);
   factory SubProductModel.fromJson(Map<String, dynamic> json) {
     return SubProductModel(
-        id: json['id'],
+        id: json['_id'],
         productId: json['productId'],
         name: json['name'],
         description: json['description'],

@@ -2,7 +2,7 @@ import 'package:comet_logistic_package/entities/shop.dart';
 
 class ShopModel extends Shop {
   ShopModel(
-      {required final String id,
+      {final String? id,
       required final String userId,
       required final name,
       final List<String>? productIdList,
@@ -21,7 +21,7 @@ class ShopModel extends Shop {
             latitude: latitude);
   factory ShopModel.fromJson(Map<String, dynamic> json) {
     return ShopModel(
-        id: json['id'],
+        id: json['_id'],
         userId: json['userId'],
         name: json['name'],
         productIdList: json['productIdList'],

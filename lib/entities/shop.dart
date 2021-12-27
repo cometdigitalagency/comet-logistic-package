@@ -1,5 +1,5 @@
 class Shop {
-  final String id;
+  final String? id;
   final String userId;
   final String name;
   final List<String>? productIdList;
@@ -9,7 +9,7 @@ class Shop {
   final double latitude;
 
   Shop(
-      {required this.id,
+      {this.id,
       required this.userId,
       required this.name,
       required this.productIdList,

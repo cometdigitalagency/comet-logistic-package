@@ -2,7 +2,7 @@ import 'package:comet_logistic_package/entities/order.dart';
 
 class OrderModel extends Order {
   OrderModel(
-      {required final String id,
+      {final String? id,
       final String? description,
       required final double price,
       required final OrderStatus status,

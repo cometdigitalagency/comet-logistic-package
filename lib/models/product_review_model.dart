@@ -2,7 +2,7 @@ import 'package:comet_logistic_package/entities/product_review.dart';
 
 class ReviewModel extends Review {
   ReviewModel(
-      {required final String id,
+      {final String? id,
       required final String username,
       final String? description,
       required final int rating})
@@ -13,7 +13,7 @@ class ReviewModel extends Review {
             rating: rating);
   factory ReviewModel.fromJson(Map<String, dynamic> json) {
     return ReviewModel(
-        id: json['id'],
+        id: json['_id'],
         username: json['username'],
         description: json['description'],
         rating: json['rating']);

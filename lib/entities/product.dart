@@ -1,7 +1,7 @@
 enum ProductType { food, grocery }
 
 class Product {
-  final String id;
+  final String? id;
   final String shopId;
 
   // TODO : type should be enum
@@ -17,7 +17,7 @@ class Product {
   final List<String>? reviewList;
 
   Product({
-    required this.id,
+    this.id,
     required this.shopId,
     required this.type,
     required this.name,

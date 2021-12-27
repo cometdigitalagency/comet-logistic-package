@@ -2,7 +2,7 @@ import 'package:comet_logistic_package/entities/user.dart';
 
 class UserModel extends User {
   UserModel(
-      {required final String id,
+      {final String? id,
       required final String name,
       required final email,
       required final String phoneNumber,
@@ -27,7 +27,7 @@ class UserModel extends User {
             roleId: roleId);
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-        id: json['id'],
+        id: json['_id'],
         name: json['name'],
         email: json['email'],
         phoneNumber: json['phoneNumber'],

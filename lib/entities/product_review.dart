@@ -1,5 +1,5 @@
 class Review {
-  final String id;
+  final String? id;
   final String username;
   final String? description;
 
@@ -7,7 +7,7 @@ class Review {
   final int rating;
 
   Review(
-      {required this.id,
+      {this.id,
       required this.username,
       required this.description,
       required this.rating});

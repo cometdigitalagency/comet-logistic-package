@@ -2,7 +2,7 @@ import 'package:comet_logistic_package/entities/product.dart';
 
 class ProductModel extends Product {
   ProductModel(
-      {required final String id,
+      {final String? id,
       required final String shopId,
       required final ProductType type,
       required final String name,
@@ -29,7 +29,7 @@ class ProductModel extends Product {
             reviewList: reviewList);
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-        id: json['id'],
+        id: json['_id'],
         shopId: json['shopId'],
         type: json['type'],
         name: json['name'],

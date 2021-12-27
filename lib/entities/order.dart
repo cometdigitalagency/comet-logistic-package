@@ -21,7 +21,7 @@ enum OrderStatus {
 */
 
 class Order {
-  final String id;
+  final String? id;
   final String? description;
   final double price;
   final OrderStatus status;
@@ -31,7 +31,7 @@ class Order {
   final bool paid;
 
   Order({
-    required this.id,
+    this.id,
     this.description,
     required this.price,
     required this.status,
