@@ -11,7 +11,7 @@ abstract class RestAWS {
   // IN CASE WE WANT TO MAKE THE PATH DYNAMIC USE :
   // @POST("/{path}")
   @POST("/user")
-  Future<dynamic> authUser(@Body() Map<String, dynamic> body,
+  Future<dynamic> authUser(@Body() dynamic body,
       {
       // @Path("path") required String path, TOKEN MUST AT LEAST BE EMPTY STRING ''
       @Header("Authorization") required String token});
@@ -24,7 +24,7 @@ abstract class RestAWS {
 
   //======> ORDER
   @POST("/order")
-  Future<dynamic> createOrder(@Body() Map<String, dynamic> body,
+  Future<dynamic> createOrder(@Body() dynamic body,
       {@Header("Authorization") required String token});
 
   @GET("/order")
@@ -38,7 +38,7 @@ abstract class RestAWS {
 
   //======> PRODUCT
   @POST("/product")
-  Future<dynamic> createProduct(@Body() Map<String, dynamic> body,
+  Future<dynamic> createProduct(@Body() dynamic body,
       {@Header("Authorization") required String token});
 
   @GET("/product")
