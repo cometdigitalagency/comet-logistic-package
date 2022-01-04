@@ -1,6 +1,6 @@
 class User {
   final String? id;
-  final String name;
+  final String? name;
   final String email;
   final String phoneNumber;
   final double? longtitude;
