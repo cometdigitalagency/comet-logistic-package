@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart' hide Headers;
 
@@ -49,6 +51,25 @@ abstract class RestAWS {
   @GET("/productList")
   Future<dynamic> getProductList(
       {@Header("Authorization") required String token});
+
+  //======> SHOP
+  @POST("/shop")
+  Future<dynamic> createShop(@Body() Map<String, dynamic> body,
+      {@Header("Authorization") required String token});
+
+  @GET("/shop")
+  Future<dynamic> getShop(
+      {@Header("Authorization") required String token,
+      @Query("category") required String category});
+
+  @PUT("/shop")
+  Future<dynamic> updateShop(@Body() Map<String, dynamic> body,
+      {@Header("Authorization") required String token});
+
+  @PUT("{imgUrl}")
+  Future<dynamic> insertShopImg(@Part() File imageFile,
+      {@Header("Authorization") required String token,
+      @Path("imgUrl") required String imgUrl});
 
   //======> OTP
   @POST("/send_otp")
