@@ -1,10 +1,12 @@
 import 'package:comet_logistic_package/entities/product.dart';
+import 'package:comet_logistic_package/entities/product_review.dart';
+import 'package:comet_logistic_package/entities/product_sub.dart';
 
 class ProductModel extends Product {
   ProductModel(
       {final String? id,
       required final String shopId,
-      required final ProductType type,
+      required final String productType,
       required final String name,
       required final String imgUrl,
       required final double price,
@@ -12,12 +14,12 @@ class ProductModel extends Product {
       final String? desc,
       required final bool available,
       final int? rating,
-      final List<String>? subProductIdList,
-      final List<String>? reviewList})
+      final List<SubProduct>? subProductIdList,
+      final List<Review>? reviewList})
       : super(
             id: id,
             shopId: shopId,
-            type: type,
+            productType: productType,
             name: name,
             imgUrl: imgUrl,
             price: price,
@@ -31,7 +33,7 @@ class ProductModel extends Product {
     return ProductModel(
         id: json['_id'],
         shopId: json['shopId'],
-        type: json['type'],
+        productType: json['productType'],
         name: json['name'],
         imgUrl: json['imgUrl'],
         price: json['price'],
@@ -46,7 +48,7 @@ class ProductModel extends Product {
   Map<String, dynamic> toJson() => <String, dynamic>{
         'id': id,
         'shopId': shopId,
-        'type': type,
+        'productType': productType,
         'name': name,
         'imgUrl': imgUrl,
         'price': price,

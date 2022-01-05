@@ -1,3 +1,4 @@
+import 'package:comet_logistic_package/entities/product.dart';
 import 'package:comet_logistic_package/entities/shop.dart';
 
 class ShopModel extends Shop {
@@ -5,7 +6,7 @@ class ShopModel extends Shop {
       {final String? id,
       required final String userId,
       required final name,
-      final List<String>? productIdList,
+      final List<Product>? productList,
       final String? imgUrl,
       final bool? available,
       required final double longtitude,
@@ -14,7 +15,7 @@ class ShopModel extends Shop {
             id: id,
             userId: userId,
             name: name,
-            productIdList: productIdList,
+            productList: productList,
             imgUrl: imgUrl,
             available: available,
             longtitude: longtitude,
@@ -24,7 +25,7 @@ class ShopModel extends Shop {
         id: json['_id'],
         userId: json['userId'],
         name: json['name'],
-        productIdList: json['productIdList'],
+        productList: json['productList'],
         imgUrl: json['imgUrl'],
         available: json['available'],
         longtitude: json['longtitude'],
@@ -35,7 +36,7 @@ class ShopModel extends Shop {
         'id': id,
         'userId': userId,
         'name': name,
-        'productIdList': productIdList,
+        'productList': productList,
         'imgUrl': imgUrl,
         'available': available,
         'longtitude': longtitude,

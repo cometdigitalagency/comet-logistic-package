@@ -36,7 +36,9 @@ abstract class RestAWS {
 
   @GET("/orderList")
   Future<dynamic> getOrderList(
-      {@Header("Authorization") required String token});
+      {@Header("Authorization") required String token,
+      @Query("longtitude") required String longtitude,
+      @Query("latitude") required String latitude});
 
   //======> PRODUCT
   @POST("/product")

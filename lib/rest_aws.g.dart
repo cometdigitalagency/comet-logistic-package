@@ -81,9 +81,13 @@ class _RestAWS implements RestAWS {
   }
 
   @override
-  Future<dynamic> getOrderList({required token}) async {
+  Future<dynamic> getOrderList(
+      {required token, required longtitude, required latitude}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'longtitude': longtitude,
+      r'latitude': latitude
+    };
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};

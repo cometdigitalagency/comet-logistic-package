@@ -1,11 +1,12 @@
-enum ProductType { food, grocery }
+import 'package:comet_logistic_package/entities/product_review.dart';
+import 'package:comet_logistic_package/entities/product_sub.dart';
 
 class Product {
   final String? id;
   final String shopId;
 
   // TODO : type should be enum
-  final ProductType type;
+  final String productType;
   final String name;
   final String imgUrl;
   final double price;
@@ -13,21 +14,21 @@ class Product {
   final String? desc;
   final bool available;
   final int? rating;
-  final List<String>? subProductIdList;
-  final List<String>? reviewList;
+  final List<SubProduct>? subProductIdList;
+  final List<Review>? reviewList;
 
   Product({
     this.id,
     required this.shopId,
-    required this.type,
+    required this.productType,
     required this.name,
     required this.imgUrl,
     required this.price,
     required this.quantity,
     this.desc,
     required this.available,
-    required this.rating,
-    required this.subProductIdList,
-    required this.reviewList,
+    this.rating,
+    this.subProductIdList,
+    this.reviewList,
   });
 }
