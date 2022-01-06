@@ -36,7 +36,7 @@ class ProductModel extends Product {
         productType: json['productType'],
         name: json['name'],
         imgUrl: json['imgUrl'],
-        price: json['price'],
+        price: json['price'] != null ? json['price'].toDouble() : 0.0,
         quantity: json['quantity'],
         desc: json['desc'],
         available: json['available'],
