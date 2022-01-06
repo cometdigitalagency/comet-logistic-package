@@ -46,6 +46,12 @@ abstract class RestAWS {
     @Query("shopId") required String shopId,
   });
 
+  @GET("/orderMap")
+  Future<dynamic> getOrderMap(
+      {@Header("Authorization") required String token,
+      @Query("longtitude") required double longtitude,
+      @Query("latitude") required double latitude});
+
   //======> PRODUCT
   @POST("/product")
   Future<dynamic> createProduct(@Body() dynamic body,

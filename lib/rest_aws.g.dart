@@ -117,6 +117,26 @@ class _RestAWS implements RestAWS {
   }
 
   @override
+  Future<dynamic> getOrderMap(
+      {required token, required longtitude, required latitude}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'longtitude': longtitude,
+      r'latitude': latitude
+    };
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'GET', headers: _headers, extra: _extra)
+            .compose(_dio.options, '/orderMap',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
+    return value;
+  }
+
+  @override
   Future<dynamic> createProduct(body, {required token}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
