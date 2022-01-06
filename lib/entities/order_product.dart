@@ -20,6 +20,7 @@ class OrderProduct {
   final double price;
   final List<String> productIdList;
   final String userId;
+   final String shopId;
 
   // Variables below will be queried from database
   final String? id;
@@ -38,6 +39,7 @@ class OrderProduct {
     this.id,
     this.productList,
     this.riderId,
+    required this.shopId,
     this.shopName,
     this.orderStatus,
     this.riderStatus,

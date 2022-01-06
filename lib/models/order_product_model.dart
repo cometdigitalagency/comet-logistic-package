@@ -7,11 +7,12 @@ class OrderProductModel extends OrderProduct {
       final String? description,
       required final double price,
       required final String orderStatus,
-      required final String riderStatus,
+      final String? riderStatus,
       required final List<String> productIdList,
       required final List<ProductModel> productList,
       required final String userId,
-      required final String riderId,
+      final String? riderId,
+      required final String shopId,
       required final String shopName,
       required final bool paid})
       : super(
@@ -24,11 +25,12 @@ class OrderProductModel extends OrderProduct {
             productList: productList,
             userId: userId,
             riderId: riderId,
+            shopId: shopId,
             shopName: shopName,
             paid: paid);
   factory OrderProductModel.fromJson(Map<String, dynamic> json) {
     return OrderProductModel(
-        id: json['id'],
+        id: json['_id'],
         description: json['description'],
         price: json['price'],
         orderStatus: json['orderStatus'],
@@ -37,6 +39,7 @@ class OrderProductModel extends OrderProduct {
         productList: json['productList'],
         userId: json['userId'],
         riderId: json['riderId'],
+        shopId: json['shopId'],
         shopName: json['shopName'],
         paid: json['paid']);
   }
@@ -50,6 +53,7 @@ class OrderProductModel extends OrderProduct {
         'productIdList': productIdList,
         'userId': userId,
         'riderId': riderId,
+        'shopId': shopId,
         'shopName': shopName,
         'paid': paid
       };
