@@ -32,11 +32,13 @@ class OrderProductModel extends OrderProduct {
     return OrderProductModel(
         id: json['_id'],
         description: json['description'],
-        price: json['price'],
+        price: json['price'] != null ? json['price'].toDouble() : 0.0,
         orderStatus: json['orderStatus'],
         riderStatus: json['riderStatus'],
-        productIdList: json['productIdList'],
-        productList: json['productList'],
+        productIdList: json['productIdList'].cast<String>(),
+        productList: List.from(json['productList'] ?? [])
+          .map((e) => ProductModel.fromJson(e))
+          .toList(),
         userId: json['userId'],
         riderId: json['riderId'],
         shopId: json['shopId'],
