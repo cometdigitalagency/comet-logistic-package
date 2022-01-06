@@ -117,6 +117,26 @@ class _RestAWS implements RestAWS {
   }
 
   @override
+  Future<dynamic> updateOrderStatus(
+      {required token, required orderId, required orderStatus}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'orderId': orderId,
+      r'orderStatus': orderStatus
+    };
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'PUT', headers: _headers, extra: _extra)
+            .compose(_dio.options, '/updateOrderStatus',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
+    return value;
+  }
+
+  @override
   Future<dynamic> getOrderMap(
       {required token, required longtitude, required latitude}) async {
     const _extra = <String, dynamic>{};
@@ -172,9 +192,13 @@ class _RestAWS implements RestAWS {
   }
 
   @override
-  Future<dynamic> getProductList({required token}) async {
+  Future<dynamic> getProductList(
+      {required token, required productType, required shopId}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'productType': productType,
+      r'shopId': shopId
+    };
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};

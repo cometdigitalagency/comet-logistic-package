@@ -46,6 +46,13 @@ abstract class RestAWS {
     @Query("shopId") required String shopId,
   });
 
+  @PUT("/updateOrderStatus")
+  Future<dynamic> updateOrderStatus({
+    @Header("Authorization") required String token,
+    @Query("orderId") required String orderId,
+    @Query("orderStatus") required String orderStatus,
+  });
+
   @GET("/orderMap")
   Future<dynamic> getOrderMap(
       {@Header("Authorization") required String token,
@@ -64,7 +71,10 @@ abstract class RestAWS {
 
   @GET("/productList")
   Future<dynamic> getProductList(
-      {@Header("Authorization") required String token});
+      {@Header("Authorization") required String token,
+      @Query("productType") required String productType,
+      @Query("shopId") required String shopId
+      });
 
   //======> SHOP
   @POST("/shop")
