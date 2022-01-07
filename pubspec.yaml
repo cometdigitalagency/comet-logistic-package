@@ -1,6 +1,6 @@
 name: comet_logistic_package
 description: A new Flutter package project.
-version: 0.0.22
+version: 0.0.25
 homepage: https://github.com/cometdigitalagency/comet-logistic-package.git
 
 environment:

@@ -196,13 +196,9 @@ class _RestAWS implements RestAWS {
   }
 
   @override
-  Future<dynamic> getProductList(
-      {required token, required productType, required shopId}) async {
+  Future<dynamic> getProductList({required token, required shopId}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'productType': productType,
-      r'shopId': shopId
-    };
+    final queryParameters = <String, dynamic>{r'shopId': shopId};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};

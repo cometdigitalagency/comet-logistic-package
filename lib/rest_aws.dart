@@ -73,7 +73,6 @@ abstract class RestAWS {
   @GET("/productList")
   Future<dynamic> getProductList(
       {@Header("Authorization") required String token,
-      @Query("productType") required String productType,
       @Query("shopId") required String shopId
       });
 

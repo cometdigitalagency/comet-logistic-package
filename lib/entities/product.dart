@@ -1,20 +1,19 @@
 import 'package:comet_logistic_package/entities/product_review.dart';
-import 'package:comet_logistic_package/entities/product_sub.dart';
+import 'package:comet_logistic_package/models/special_option_model.dart';
+
 
 class Product {
   final String? id;
   final String shopId;
-
-  // TODO : type should be enum
   final String productType;
   final String name;
   final String imgUrl;
   final double price;
-  final int quantity;
+  final int? quantity;
   final String? desc;
   final bool available;
   final int? rating;
-  final List<SubProduct>? subProductIdList;
+  final List<SpecialOption>? specialOptions;
   final List<Review>? reviewList;
 
   Product({
@@ -28,7 +27,7 @@ class Product {
     this.desc,
     required this.available,
     this.rating,
-    this.subProductIdList,
+    this.specialOptions,
     this.reviewList,
   });
 }
