@@ -1,16 +1,13 @@
-class OrderMap {
-  final double? customerLongtitude;
-  final double? customerLatitude;
-  final double? riderLongtitude;
-  final double? riderLatitude;
-  final double? shopLongtitude;
-  final double? shopLatitude;
+import 'package:comet_logistic_package/entities/user_location.dart';
 
-  OrderMap(
-      {this.customerLongtitude,
-      this.customerLatitude,
-      this.riderLongtitude,
-      this.riderLatitude,
-      this.shopLongtitude,
-      this.shopLatitude});
+class OrderMap {
+  final UserLocation customerLocation;
+  final UserLocation riderLocation;
+  final UserLocation shopLocation;
+
+  OrderMap({
+    required this.customerLocation,
+    required this.riderLocation,
+    required this.shopLocation,
+  });
 }

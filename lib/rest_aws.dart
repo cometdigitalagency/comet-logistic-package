@@ -49,6 +49,7 @@ abstract class RestAWS {
   @GET("/orderMap")
   Future<dynamic> getOrderMap(
       {@Header("Authorization") required String token,
+      @Query("userId") required String userId,
       @Query("longtitude") required double longtitude,
       @Query("latitude") required double latitude});
 
@@ -100,18 +101,3 @@ abstract class RestAWS {
       @Header("_id") required String id,
       @Body() required dynamic body});
 }
-
-
-
-
-// class Task {
-//   String? id;
-//   String? name;
-//   String? avatar;
-//   String? createdAt;
-
-//   Task({this.id, this.name, this.avatar, this.createdAt});
-
-//   factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
-//   Map<String, dynamic> toJson() => _$TaskToJson(this);
-// }

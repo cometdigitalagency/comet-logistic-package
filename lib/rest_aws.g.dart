@@ -118,9 +118,13 @@ class _RestAWS implements RestAWS {
 
   @override
   Future<dynamic> getOrderMap(
-      {required token, required longtitude, required latitude}) async {
+      {required token,
+      required userId,
+      required longtitude,
+      required latitude}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'userId': userId,
       r'longtitude': longtitude,
       r'latitude': latitude
     };

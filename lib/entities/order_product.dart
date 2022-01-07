@@ -14,13 +14,13 @@
 import 'package:comet_logistic_package/entities/product.dart';
 
 class OrderProduct {
-  // Initial Value for Order
+  // Initial Value for Order (MUST-HAVE)
   // 'productIdList' is normally used when create order
   final String? description;
   final double price;
   final List<String> productIdList;
-  final String userId;
-   final String shopId;
+  final String customerId;
+  final String shopId;
 
   // Variables below will be queried from database
   final String? id;
@@ -34,7 +34,7 @@ class OrderProduct {
   OrderProduct({
     required this.price,
     required this.productIdList,
-    required this.userId,
+    required this.customerId,
     this.description,
     this.id,
     this.productList,
