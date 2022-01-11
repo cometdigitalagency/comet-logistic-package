@@ -16,7 +16,10 @@ class ProductModel extends Product {
       required final bool available,
       final int? rating,
       final List<SpecialOption>? specialOptions,
-      final List<Review>? reviewList})
+      final List<Review>? reviewList,
+      final String? deliveryType,
+      final bool? deliveryProvince,
+      })
       : super(
             id: id,
             shopId: shopId,
@@ -29,7 +32,10 @@ class ProductModel extends Product {
             available: available,
             rating: rating,
             specialOptions: specialOptions,
-            reviewList: reviewList);
+            reviewList: reviewList,
+            deliveryProvince: deliveryProvince,
+            deliveryType: deliveryType
+            );
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
         id: json['_id'],
@@ -45,7 +51,10 @@ class ProductModel extends Product {
         specialOptions: List.from(json['specialOptions'] ?? [])
           .map((e) => SpecialOption.fromJson(e))
           .toList(),
-        reviewList: json['reviewList']);
+        reviewList: json['reviewList'],
+        deliveryProvince: json['deliveryProvince'],
+            deliveryType: json['deliveryType']
+        );
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -60,7 +69,9 @@ class ProductModel extends Product {
         'available': available,
         'rating': rating,
         'specialOptions': specialOptions,
-        'reviewList': reviewList
+        'reviewList': reviewList,
+        'deliveryProvince': deliveryProvince,
+            'deliveryType': deliveryType
       };
 }
 

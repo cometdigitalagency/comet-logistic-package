@@ -15,6 +15,8 @@ class Product {
   final int? rating;
   final List<SpecialOption>? specialOptions;
   final List<Review>? reviewList;
+  final String? deliveryType;
+  final bool? deliveryProvince;
 
   Product({
     this.id,
@@ -29,5 +31,7 @@ class Product {
     this.rating,
     this.specialOptions,
     this.reviewList,
+    this.deliveryProvince,
+    this.deliveryType
   });
 }
