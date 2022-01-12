@@ -1,7 +1,7 @@
 import 'package:comet_logistic_package/entities/product.dart';
 import 'package:comet_logistic_package/entities/product_review.dart';
+import 'package:comet_logistic_package/models/product_review_model.dart';
 import 'package:comet_logistic_package/models/special_option_model.dart';
-
 
 class ProductModel extends Product {
   ProductModel(
@@ -12,7 +12,7 @@ class ProductModel extends Product {
       required final String imgUrl,
       required final double price,
       final int? quantity,
-      final String? desc,
+      final String? description,
       required final bool available,
       final int? rating,
       final List<SpecialOption>? specialOptions,
@@ -25,7 +25,7 @@ class ProductModel extends Product {
             imgUrl: imgUrl,
             price: price,
             quantity: quantity,
-            desc: desc,
+            description: description,
             available: available,
             rating: rating,
             specialOptions: specialOptions,
@@ -39,24 +39,26 @@ class ProductModel extends Product {
         imgUrl: json['imgUrl'],
         price: json['price'] != null ? json['price'].toDouble() : 0.0,
         quantity: json['quantity'],
-        desc: json['desc'],
+        description: json['desc'],
         available: json['available'],
         rating: json['rating'],
         specialOptions: List.from(json['specialOptions'] ?? [])
-          .map((e) => SpecialOption.fromJson(e))
-          .toList(),
-        reviewList: json['reviewList']);
+            .map((e) => SpecialOption.fromJson(e))
+            .toList(),
+        reviewList: List.from(json['reviewList'] ?? [])
+            .map((e) => ReviewModel.fromJson(e))
+            .toList());
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id,
+        '_id': id,
         'shopId': shopId,
         'productType': productType,
         'name': name,
         'imgUrl': imgUrl,
         'price': price,
         'quantity': quantity,
-        'desc': desc,
+        'description': description,
         'available': available,
         'rating': rating,
         'specialOptions': specialOptions,

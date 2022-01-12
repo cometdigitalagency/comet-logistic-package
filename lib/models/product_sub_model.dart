@@ -4,7 +4,7 @@ class SubProductModel extends SubProduct {
   SubProductModel(
       {final String? id,
       required final String productId,
-      required final name,
+      required final String name,
       final String? description,
       required final double price})
       : super(
@@ -23,7 +23,7 @@ class SubProductModel extends SubProduct {
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id,
+        '_id': id,
         'productId': productId,
         'name': name,
         'description': description,

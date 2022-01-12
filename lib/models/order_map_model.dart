@@ -1,11 +1,12 @@
 import 'package:comet_logistic_package/entities/order_map_entity.dart';
+import 'package:comet_logistic_package/entities/user_location.dart';
 import 'package:comet_logistic_package/models/user_location_model.dart';
 
 class OrderMapModel extends OrderMap {
   OrderMapModel(
-      {required final UserLocationModel customerLocation,
-      required final UserLocationModel riderLocation,
-      required final UserLocationModel shopLocation})
+      {required final UserLocation customerLocation,
+      required final UserLocation riderLocation,
+      required final UserLocation shopLocation})
       : super(
             customerLocation: customerLocation,
             riderLocation: riderLocation,

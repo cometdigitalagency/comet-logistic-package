@@ -13,6 +13,7 @@
 
 import 'package:comet_logistic_package/entities/product.dart';
 
+// It is not named "Order" because Order is duplicated with some package in flutter
 class OrderProduct {
   // Initial Value for Order (MUST-HAVE)
   // 'productIdList' is normally used when create order
@@ -30,19 +31,20 @@ class OrderProduct {
   final String? riderStatus;
   final List<Product>? productList;
   final bool? paid;
+  final bool complete;
 
-  OrderProduct({
-    required this.price,
-    required this.productIdList,
-    required this.customerId,
-    this.description,
-    this.id,
-    this.productList,
-    this.riderId,
-    required this.shopId,
-    this.shopName,
-    this.orderStatus,
-    this.riderStatus,
-    this.paid,
-  });
+  OrderProduct(
+      {required this.price,
+      required this.productIdList,
+      required this.customerId,
+      this.description,
+      this.id,
+      this.productList,
+      this.riderId,
+      required this.shopId,
+      this.shopName,
+      this.orderStatus,
+      this.riderStatus,
+      this.paid,
+      required this.complete});
 }

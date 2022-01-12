@@ -1,4 +1,5 @@
 import 'package:comet_logistic_package/entities/order_product.dart';
+import 'package:comet_logistic_package/entities/product.dart';
 import 'package:comet_logistic_package/models/product_model.dart';
 
 class OrderProductModel extends OrderProduct {
@@ -9,12 +10,13 @@ class OrderProductModel extends OrderProduct {
       required final String orderStatus,
       final String? riderStatus,
       required final List<String> productIdList,
-      required final List<ProductModel> productList,
+      required final List<Product> productList,
       required final String customerId,
       final String? riderId,
       required final String shopId,
       required final String shopName,
-      required final bool paid})
+      final bool? paid,
+      required final bool complete})
       : super(
             id: id,
             description: description,
@@ -27,7 +29,8 @@ class OrderProductModel extends OrderProduct {
             riderId: riderId,
             shopId: shopId,
             shopName: shopName,
-            paid: paid);
+            paid: paid,
+            complete: complete);
   factory OrderProductModel.fromJson(Map<String, dynamic> json) {
     return OrderProductModel(
         id: json['_id'],
@@ -43,11 +46,12 @@ class OrderProductModel extends OrderProduct {
         riderId: json['riderId'],
         shopId: json['shopId'],
         shopName: json['shopName'],
-        paid: json['paid']);
+        paid: json['paid'],
+        complete: json['complete']);
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id,
+        '_id': id,
         'description': description,
         'price': price,
         'orderStatus': orderStatus,
@@ -57,6 +61,7 @@ class OrderProductModel extends OrderProduct {
         'riderId': riderId,
         'shopId': shopId,
         'shopName': shopName,
-        'paid': paid
+        'paid': paid,
+        'complete': complete
       };
 }

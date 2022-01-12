@@ -34,6 +34,40 @@ abstract class RestAWS {
       {@Header("Authorization") required String token,
       @Header("OrderId") required String orderId});
 
+  @GET("/myOrders")
+  Future<dynamic> getMyOrder(
+      {@Header("Authorization") required String token,
+      @Query("customerId") required String customerId});
+
+  @GET("/myFavoriteProducts")
+  Future<dynamic> getMyFavoriteProducts(
+      {@Header("Authorization") required String token,
+      @Query("customerId") required String customerId});
+
+  @GET("myShopIncomingOrders")
+  Future<dynamic> getIncomingOrders(
+      {@Header("Authorization") required String token,
+      @Query("shopId") required String shopId});
+
+  @GET("myShopCurrentOrders")
+  Future<dynamic> getCurrentOrders(
+      {@Header("Authorization") required String token,
+      @Query("shopId") required String shopId});
+
+  @GET("myShopCompleteOrders")
+  Future<dynamic> getCompleteOrders(
+      {@Header("Authorization") required String token,
+      @Query("shopId") required String shopId});
+
+  @GET("assignedOrder")
+  Future<dynamic> getAssignedOrder(
+      {@Header("Authorization") required String token,
+      @Query("shopId") required String riderId});
+  @GET("acceptOrder")
+  Future<dynamic> getAcceptOrder(
+      {@Header("Authorization") required String token,
+      @Query("shopId") required String riderId});
+
   @GET("/orderList")
   Future<dynamic> getOrderList(
       {@Header("Authorization") required String token,
@@ -73,8 +107,7 @@ abstract class RestAWS {
   @GET("/productList")
   Future<dynamic> getProductList(
       {@Header("Authorization") required String token,
-      @Query("shopId") required String shopId
-      });
+      @Query("shopId") required String shopId});
 
   //======> SHOP
   @POST("/shop")
@@ -90,6 +123,7 @@ abstract class RestAWS {
   Future<dynamic> updateShop(@Body() Map<String, dynamic> body,
       {@Header("Authorization") required String token});
 
+  // Image Filename must match the filename provided in signed Link
   @PUT("{imgUrl}")
   Future<dynamic> insertShopImg(@Part() File imageFile,
       {@Header("Authorization") required String token,
