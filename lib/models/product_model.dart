@@ -4,20 +4,22 @@ import 'package:comet_logistic_package/models/product_review_model.dart';
 import 'package:comet_logistic_package/models/special_option_model.dart';
 
 class ProductModel extends Product {
-  ProductModel(
-      {final String? id,
-      required final String shopId,
-      required final String productType,
-      required final String name,
-      required final String imgUrl,
-      required final double price,
-      final int? quantity,
-      final String? description,
-      required final bool available,
-      final int? rating,
-      final List<SpecialOption>? specialOptions,
-      final List<Review>? reviewList})
-      : super(
+  ProductModel({
+    final String? id,
+    required final String shopId,
+    required final String productType,
+    required final String name,
+    required final String imgUrl,
+    required final double price,
+    final int? quantity,
+    final String? description,
+    required final bool available,
+    final int? rating,
+    final List<SpecialOption>? specialOptions,
+    final List<Review>? reviewList,
+    final String? deliveryType,
+    final bool? deliveryProvince,
+  }) : super(
             id: id,
             shopId: shopId,
             productType: productType,
@@ -29,7 +31,9 @@ class ProductModel extends Product {
             available: available,
             rating: rating,
             specialOptions: specialOptions,
-            reviewList: reviewList);
+            reviewList: reviewList,
+            deliveryProvince: deliveryProvince,
+            deliveryType: deliveryType);
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
         id: json['_id'],
@@ -47,7 +51,9 @@ class ProductModel extends Product {
             .toList(),
         reviewList: List.from(json['reviewList'] ?? [])
             .map((e) => ReviewModel.fromJson(e))
-            .toList());
+            .toList(),
+        deliveryProvince: json['deliveryProvince'],
+        deliveryType: json['deliveryType']);
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -62,7 +68,9 @@ class ProductModel extends Product {
         'available': available,
         'rating': rating,
         'specialOptions': specialOptions,
-        'reviewList': reviewList
+        'reviewList': reviewList,
+        'deliveryProvince': deliveryProvince,
+        'deliveryType': deliveryType
       };
 }
 
