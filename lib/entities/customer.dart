@@ -12,6 +12,7 @@ class Customer {
   final String? jwtToken;
   final List<OrderProduct>? currentOrders;
   final List<OrderProduct>? favoriteProducts;
+  final int roleId;
 
   Customer(
       {this.id,
@@ -24,5 +25,6 @@ class Customer {
       required this.uuid,
       this.jwtToken,
       this.currentOrders,
-      this.favoriteProducts});
+      this.favoriteProducts,
+      this.roleId = 0});
 }

@@ -57,8 +57,9 @@ class CustomerModel extends Customer {
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        '_id': id,
+        'id': id,
         'name': name,
+        'roleId': roleId,
         'email': email,
         'phoneNumber': phoneNumber,
         'longtitude': longtitude,

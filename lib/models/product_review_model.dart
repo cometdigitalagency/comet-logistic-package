@@ -20,7 +20,7 @@ class ReviewModel extends Review {
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        '_id': id,
+        'id': id,
         'username': username,
         'description': description,
         'rating': rating

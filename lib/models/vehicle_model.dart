@@ -34,7 +34,7 @@ class VehicleModel extends Vehicle {
       });
     }
     return VehicleModel(
-        id: json['_id'],
+        id: json['id'],
         license: json['license'],
         brand: json['brand'],
         type: json['type'],
@@ -44,7 +44,7 @@ class VehicleModel extends Vehicle {
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        '_id': id,
+        'id': id,
         'license': license,
         'brand': brand,
         'type': type,

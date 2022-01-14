@@ -3,6 +3,7 @@ import 'package:comet_logistic_package/entities/product.dart';
 
 class Shop {
   final String? id;
+  final int roleId;
   final String name;
   final String phoneNumber;
   final List<Product>? products;
@@ -13,12 +14,11 @@ class Shop {
   final String language;
   final String uuid;
   final String? jwtToken;
-  final List<OrderProduct>? incomingOrderIds;
-  final List<OrderProduct>? currentOrderIds;
-  final List<OrderProduct>? completeOrderIds;
+  final List<OrderProduct>? orders;
 
   Shop(
       {this.id,
+      this.roleId = 2,
       required this.name,
       required this.phoneNumber,
       this.products,
@@ -29,7 +29,5 @@ class Shop {
       required this.language,
       required this.uuid,
       required this.jwtToken,
-      this.incomingOrderIds,
-      this.currentOrderIds,
-      this.completeOrderIds});
+      this.orders});
 }

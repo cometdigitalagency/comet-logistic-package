@@ -16,19 +16,16 @@ abstract class RestAWS {
   Future<dynamic> authUser(@Body() dynamic body,
       {
       // @Path("path") required String path, TOKEN MUST AT LEAST BE EMPTY STRING ''
-      @Header("Authorization") required String token});
+      @Header("Authorization") String token = ""});
 
   // TODO : Update Lambda to get User based on uuid
   @GET("/user")
   Future<dynamic> getUser(
-      {@Header("Authorization") required String token,
-      @Header("uuid") required String uuid});
+      {@Header("Authorization") String token = "",
+      @Query("uuid") required String uuid,
+      @Query("roleId") required String roleId});
 
   //======> ORDER
-  @POST("/order")
-  Future<dynamic> createOrder(@Body() dynamic body,
-      {@Header("Authorization") required String token});
-
   @GET("/order")
   Future<dynamic> getOrder(
       {@Header("Authorization") required String token,
@@ -44,29 +41,28 @@ abstract class RestAWS {
       {@Header("Authorization") required String token,
       @Query("customerId") required String customerId});
 
-  @GET("myShopIncomingOrders")
-  Future<dynamic> getIncomingOrders(
+  @GET("/myShopOrders")
+  Future<dynamic> getShopOrders(
       {@Header("Authorization") required String token,
-      @Query("shopId") required String shopId});
-
-  @GET("myShopCurrentOrders")
-  Future<dynamic> getCurrentOrders(
-      {@Header("Authorization") required String token,
-      @Query("shopId") required String shopId});
-
-  @GET("myShopCompleteOrders")
-  Future<dynamic> getCompleteOrders(
-      {@Header("Authorization") required String token,
-      @Query("shopId") required String shopId});
+      @Query("shopId") required String shopId,
+      @Query("orderStatus") required String orderStatus});
 
   @GET("assignedOrder")
   Future<dynamic> getAssignedOrder(
       {@Header("Authorization") required String token,
       @Query("shopId") required String riderId});
+
   @GET("acceptOrder")
   Future<dynamic> getAcceptOrder(
       {@Header("Authorization") required String token,
       @Query("shopId") required String riderId});
+
+  @GET("/orderMap")
+  Future<dynamic> getOrderMap(
+      {@Header("Authorization") required String token,
+      @Query("userId") required String userId,
+      @Query("longtitude") required double longtitude,
+      @Query("latitude") required double latitude});
 
   @GET("/orderList")
   Future<dynamic> getOrderList(
@@ -80,6 +76,10 @@ abstract class RestAWS {
     @Query("shopId") required String shopId,
   });
 
+  @POST("/order")
+  Future<dynamic> createOrder(@Body() dynamic body,
+      {@Header("Authorization") required String token});
+
   @PUT("/updateOrderStatus")
   Future<dynamic> updateOrderStatus({
     @Header("Authorization") required String token,
@@ -87,18 +87,19 @@ abstract class RestAWS {
     @Query("orderStatus") required String orderStatus,
   });
 
-  @GET("/orderMap")
-  Future<dynamic> getOrderMap(
-      {@Header("Authorization") required String token,
-      @Query("userId") required String userId,
-      @Query("longtitude") required double longtitude,
-      @Query("latitude") required double latitude});
+  @PUT("/acceptOrder")
+  Future<dynamic> acceptOrder({
+    @Header("Authorization") required String token,
+    @Query("orderId") required String orderId,
+  });
+
+  @PUT("/completeOrder")
+  Future<dynamic> completePayment({
+    @Header("Authorization") required String token,
+    @Query("orderId") required String orderId,
+  });
 
   //======> PRODUCT
-  @POST("/product")
-  Future<dynamic> createProduct(@Body() dynamic body,
-      {@Header("Authorization") required String token});
-
   @GET("/product")
   Future<dynamic> getProduct(
       {@Header("Authorization") required String token,
@@ -109,6 +110,14 @@ abstract class RestAWS {
       {@Header("Authorization") required String token,
       @Query("shopId") required String shopId});
 
+  @POST("/product")
+  Future<dynamic> createProduct(@Body() dynamic body,
+      {@Header("Authorization") required String token});
+
+  @PUT("/product")
+  Future<dynamic> updateProduct(@Body() dynamic body,
+      {@Header("Authorization") required String token});
+
   //======> SHOP
   @POST("/shop")
   Future<dynamic> createShop(@Body() Map<String, dynamic> body,
@@ -116,6 +125,11 @@ abstract class RestAWS {
 
   @GET("/shop")
   Future<dynamic> getShop(
+      {@Header("Authorization") required String token,
+      @Query("shopId") required String shopId});
+
+  @GET("/shopList")
+  Future<dynamic> getShopList(
       {@Header("Authorization") required String token,
       @Query("category") required String category});
 

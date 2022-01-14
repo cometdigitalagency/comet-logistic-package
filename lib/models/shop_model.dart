@@ -18,9 +18,7 @@ class ShopModel extends Shop {
       required final String language,
       required final String uuid,
       final String? jwtToken,
-      final List<OrderProduct>? incomingOrderIds,
-      final List<OrderProduct>? currentOrderIds,
-      final List<OrderProduct>? completeOrderIds})
+      final List<OrderProduct>? orders})
       : super(
             id: id,
             name: name,
@@ -33,33 +31,19 @@ class ShopModel extends Shop {
             language: language,
             uuid: uuid,
             jwtToken: jwtToken,
-            incomingOrderIds: incomingOrderIds,
-            currentOrderIds: currentOrderIds,
-            completeOrderIds: completeOrderIds);
+            orders: orders);
   factory ShopModel.fromJson(Map<String, dynamic> json) {
     List<Product>? products = [];
-    List<OrderProduct>? incomingOrderIds = [];
-    List<OrderProduct>? currentOrderIds = [];
-    List<OrderProduct>? completeOrderIds = [];
+    List<OrderProduct>? orders = [];
 
     if (json['products'] != null) {
       json['products'].forEach((m) {
         products.add(ProductModel.fromJson(m));
       });
     }
-    if (json['incomingOrderIds'] != null) {
-      json['incomingOrderIds'].forEach((m) {
-        incomingOrderIds.add(OrderProductModel.fromJson(m));
-      });
-    }
-    if (json['currentOrderIds'] != null) {
-      json['currentOrderIds'].forEach((m) {
-        currentOrderIds.add(OrderProductModel.fromJson(m));
-      });
-    }
-    if (json['completeOrderIds'] != null) {
-      json['completeOrderIds'].forEach((m) {
-        completeOrderIds.add(OrderProductModel.fromJson(m));
+    if (json['orders'] != null) {
+      json['orders'].forEach((m) {
+        orders.add(OrderProductModel.fromJson(m));
       });
     }
 
@@ -75,9 +59,7 @@ class ShopModel extends Shop {
         language: json['language'],
         uuid: json['uuid'],
         jwtToken: json['jwtToken'],
-        incomingOrderIds: incomingOrderIds,
-        currentOrderIds: currentOrderIds,
-        completeOrderIds: completeOrderIds);
+        orders: orders);
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -92,8 +74,6 @@ class ShopModel extends Shop {
         'language': language,
         'uuid': uuid,
         'jwtToken': jwtToken,
-        'incomingOrderIds': incomingOrderIds,
-        'currentOrderIds': currentOrderIds,
-        'completeOrderIds': completeOrderIds
+        'orders': orders,
       };
 }

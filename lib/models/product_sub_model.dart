@@ -23,7 +23,7 @@ class SubProductModel extends SubProduct {
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        '_id': id,
+        'id': id,
         'productId': productId,
         'name': name,
         'description': description,

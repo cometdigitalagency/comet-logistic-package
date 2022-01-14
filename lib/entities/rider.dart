@@ -3,6 +3,7 @@ import 'package:comet_logistic_package/entities/vehicle.dart';
 
 class Rider {
   final String? id;
+  final int roleId;
   final String name;
   final String phoneNumber;
   final double? longtitude;
@@ -16,6 +17,7 @@ class Rider {
 
   Rider({
     this.id,
+    this.roleId = 1,
     required this.name,
     required this.phoneNumber,
     this.longtitude,
