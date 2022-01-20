@@ -19,8 +19,17 @@ class SelectedProductModel extends SelectedProduct {
     return SelectedProductModel(
       product: ProductModel.fromJson(json['product']),
       quantity: json['quantity'] != null ? int.parse(json['quantity']) : 0,
-      selectedOption: [],
+      selectedOption: List.from(json['selectedOption'] ?? [])
+            .map((e) => SpecialOption.fromJson(e))
+            .toList(),
       totalPrice: json['totalPrice'] != null ? json['totalPrice'].toDoube() : 0.0,
     );
   }
+
+   Map<String, dynamic> toJson() => <String, dynamic>{
+        'product': product,
+        'quantity': quantity,
+        'selectedOption': selectedOption,
+        'totalPrice': totalPrice
+      };
 }
