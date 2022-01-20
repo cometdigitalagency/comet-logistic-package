@@ -14,7 +14,7 @@ abstract class RestAWS {
   // @POST("/{path}")
   @POST("/user")
   Future<dynamic> authUser(@Body() dynamic body,
-      {
+      {@Query("roleId") required String roleId,
       // @Path("path") required String path, TOKEN MUST AT LEAST BE EMPTY STRING ''
       @Header("Authorization") String token = ""});
 

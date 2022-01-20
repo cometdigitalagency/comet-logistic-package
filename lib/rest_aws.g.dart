@@ -14,9 +14,9 @@ class _RestAWS implements RestAWS {
   String? baseUrl;
 
   @override
-  Future<dynamic> authUser(body, {token = ""}) async {
+  Future<dynamic> authUser(body, {required roleId, token = ""}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'roleId': roleId};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = body;
@@ -30,8 +30,7 @@ class _RestAWS implements RestAWS {
   }
 
   @override
-  Future<dynamic> getUser(
-      {token = "  ", required uuid, required roleId}) async {
+  Future<dynamic> getUser({token = "", required uuid, required roleId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'uuid': uuid, r'roleId': roleId};
     final _headers = <String, dynamic>{r'Authorization': token};
