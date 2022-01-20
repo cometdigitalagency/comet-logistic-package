@@ -4,10 +4,11 @@ import 'package:comet_logistic_package/entities/product.dart';
 class Shop {
   final String? id;
   final int roleId;
+  final String category;
   final String name;
   final String phoneNumber;
   final List<Product>? products;
-  final String? imageUrl;
+  final String? imgUrl;
   final bool available;
   final double longtitude;
   final double latitude;
@@ -19,10 +20,11 @@ class Shop {
   Shop(
       {this.id,
       this.roleId = 2,
+      required this.category,
       required this.name,
       required this.phoneNumber,
       this.products,
-      this.imageUrl,
+      this.imgUrl,
       required this.available,
       required this.longtitude,
       required this.latitude,

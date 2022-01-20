@@ -7,10 +7,9 @@ class SelectedProduct {
   final double totalPrice;
   final List<SpecialOption> selectedOption;
 
-  SelectedProduct({
-    required this.product,
-    required this.quantity,
-    required this.totalPrice,
-    required this.selectedOption
-  });
+  SelectedProduct(
+      {required this.product,
+      required this.quantity,
+      required this.totalPrice,
+      required this.selectedOption});
 }

@@ -26,10 +26,21 @@ abstract class RestAWS {
       @Query("roleId") required String roleId});
 
   //======> ORDER
+  @PUT("/cart")
+  Future<dynamic> updateCart(
+      {@Header("Authorization") required String token,
+      @Query("uuid") required String uuid,
+      @Body() required Map<String, dynamic> body});
+
+  @GET("/cart")
+  Future<dynamic> getCart(
+      {@Header("Authorization") required String token,
+      @Query("uuid") required String uuid});
+
   @GET("/order")
   Future<dynamic> getOrder(
       {@Header("Authorization") required String token,
-      @Header("OrderId") required String orderId});
+      @Query("OrderId") required String orderId});
 
   @GET("/myOrders")
   Future<dynamic> getMyOrder(
