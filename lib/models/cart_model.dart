@@ -9,11 +9,11 @@ class CartModel {
   final double price;
 
   CartModel(
-      {required this.id,
+      {this.id,
       required this.uuid,
       required this.shopId,
       required this.selectedProducts,
-      required this.description,
+      this.description,
       required this.price});
 
   factory CartModel.fromJson(Map<String, dynamic> json) {
@@ -37,7 +37,7 @@ class CartModel {
         selectedProducts.map((v) => v.toJson()).toList();
 
     return <String, dynamic>{
-      '_id': id,
+      // '_id': id,
       'uuid': uuid,
       'shopId': shopId,
       'selectedProducts': jsonSelectedProducts,

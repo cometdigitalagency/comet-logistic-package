@@ -23,14 +23,14 @@ class SelectedProductModel extends SelectedProduct {
           .map((e) => SpecialOption.fromJson(e))
           .toList(),
       totalPrice:
-          json['totalPrice'] != null ? json['totalPrice'].toDoube() : 0.0,
+          json['totalPrice'] != null ? json['totalPrice'].toDouble() : 0.0,
     );
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'product': product,
-        'quantity': quantity,
-        'selectedOption': selectedOption.map((v) => v.toJson()).toList(),
-        'totalPrice': totalPrice
+        "product": product.toJson(),
+        "quantity": quantity,
+        "selectedOption": selectedOption.map((v) => v.toJson()).toList(),
+        "totalPrice": totalPrice
       };
 }
