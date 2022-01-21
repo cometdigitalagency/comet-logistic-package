@@ -18,7 +18,7 @@ class SelectedProductModel extends SelectedProduct {
   factory SelectedProductModel.fromJson(Map<String, dynamic> json) {
     return SelectedProductModel(
       productModel: ProductModel.fromJson(json['product']),
-      quantity: json['quantity'] != null ? int.parse(json['quantity']) : 0,
+      quantity: json['quantity'] ?? 0,
       selectedOption: List.from(json['selectedOption'] ?? [])
           .map((e) => SpecialOption.fromJson(e))
           .toList(),

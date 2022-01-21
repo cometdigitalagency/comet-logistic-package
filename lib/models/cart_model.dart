@@ -18,8 +18,8 @@ class CartModel {
 
   factory CartModel.fromJson(Map<String, dynamic> json) {
     List<SelectedProductModel>? products = [];
-    if (json['products'] != null) {
-      json['products'].forEach((m) {
+    if (json['selectedProducts'] != null) {
+      json['selectedProducts'].forEach((m) {
         products.add(SelectedProductModel.fromJson(m));
       });
     }
@@ -29,7 +29,7 @@ class CartModel {
         shopId: json['shopId'],
         selectedProducts: products,
         description: json['description'],
-        price: json['price']);
+        price: json['price'] != null ? json['price'].toDouble() : 0.0);
   }
 
   Map<String, dynamic> toJson() {
